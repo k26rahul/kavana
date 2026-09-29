@@ -24,6 +24,19 @@ calculate_total_bill(50.0, 0, 8, 10)    # 59.0
 calculate_total_bill(200.0, 25, 10, 15) # 187.5
 ```
 
+**Sample Solution:**
+
+```python
+def calculate_total_bill(subtotal, discount_percent, tax_percent, tip_percent):
+    discount_amount = subtotal * (discount_percent / 100)
+    discounted_subtotal = subtotal - discount_amount
+    tax_amount = discounted_subtotal * (tax_percent / 100)
+    tip_amount = discounted_subtotal * (tip_percent / 100)
+    total_bill = discounted_subtotal + tax_amount + tip_amount
+    return round(total_bill, 2)
+
+```
+
 ---
 
 ### Task 2: `format_duration(total_seconds)`
