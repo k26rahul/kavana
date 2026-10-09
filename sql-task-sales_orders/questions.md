@@ -4,14 +4,29 @@ This practice set focuses on `SELECT` queries using ANSI SQL syntax compatible w
 
 ## Database Setup
 
-Run the following command in your terminal to initialize and populate the SQLite database:
+### Option 1: PostgreSQL with SQLTools in VS Code
+If you have PostgreSQL installed and use the **SQLTools** extension in VS Code:
+1. Connect to your practice database (default `postgres` database for Kavana) in the SQLTools sidebar.
+2. Create a new SQL file (e.g., `practice.sql`) in VS Code for practicing.
+3. Copy the SQL content from [`schema.sql`](schema.sql), paste it into your SQL file, and execute it to create the `sales_orders` table.
+4. Copy the SQL content from [`seed_data.sql`](seed_data.sql), paste it into your SQL file, and execute it to insert the 50 records.
+5. Start writing and running your practice queries in that SQL file.
 
+### Option 2: SQLite CLI (Terminal Setup)
+If you prefer working with a lightweight local database:
+
+1. Install SQLite CLI via PowerShell (installs only if not already installed):
+```powershell
+if (-not (Get-Command sqlite3 -ErrorAction SilentlyContinue)) { winget install SQLite.SQLite }
+```
+*(If newly installed, restart your terminal so `sqlite3` is recognized on your PATH).*
+
+2. Create and seed the database:
 ```bash
 sqlite3 sales.db ".read schema.sql" ".read seed_data.sql"
 ```
 
-To open the interactive SQLite shell and practice queries:
-
+3. Open the interactive SQLite shell to start practicing:
 ```bash
 sqlite3 sales.db
 ```
